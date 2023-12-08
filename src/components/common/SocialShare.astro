@@ -1,0 +1,18 @@
+---
+import { Icon } from 'astro-icon/components'
+
+export interface Props {
+  text: string
+  url: string | URL
+  class?: string
+}
+
+const { text, url, class: className = 'inline-block' } = Astro.props
+---
+
+<div class={className}>
+  <span class="align-super font-bold text-gray-400">Share:</span>
+  <button class="ml-2" title="Twitter Share" data-aw-social-share="twitter" data-aw-url={url} data-aw-text={text}
+    ><Icon name="tabler:brand-x" class="w-6 h-6 text-gray-400 hover:text-black" />
+  </button>
+</div>

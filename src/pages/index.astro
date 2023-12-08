@@ -1,0 +1,18 @@
+---
+import Layout from '~/layouts/PageLayout.astro'
+
+import Hero from '~/components/widgets/Hero.astro'
+import Explore from '~/components/widgets/Explore.astro'
+
+const metadata = {
+  title: 'enqAI - decentralized, uncensored',
+}
+---
+
+<Layout metadata={metadata}>
+  <!-- Landing Hero -->
+  <Hero />
+
+  <!-- Explore the enqAI ecosystem -->
+  <Explore />
+</Layout>
