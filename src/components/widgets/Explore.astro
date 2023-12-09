@@ -12,39 +12,44 @@ const products = [
     description:
       'Our proprietary Arbitrum Rollup chain. Dedicated to powering the enqAI ecosystem. \n\nDedicated chain that settles to Arbitrum One using the enqAI (formerly noiseGPT) token for gas and governance.',
     image: enlil3Logo,
-    action: true,
+    href: '#',
   },
   {
     title: 'noiseGPT',
-    description: 'Description here',
+    description: 'Our awesome voice cloning, lifelike text-to-speech and lipsync engine.',
     image: noiseGPTLogo,
-    action: true,
+    href: '#',
   },
   {
     title: 'botifAI.app',
-    description: 'Description here',
+    description:
+      "An extensive suite of customer-facing applications connected to a variety of LLM's, including enqAI LLM.",
     image: botifAILogo,
+    href: '#',
   },
   {
-    title: 'myAnalist',
-    description: 'Description here',
+    title: 'myAnalyst',
+    description:
+      'An extensive suite of business oriented analytical tools. Train our models on your proprietary company data in a safe and shielded environment.',
     image: myAnalistLogo,
+    href: '#',
   },
   {
     title: 'aiDULT',
-    description: 'Description here',
+    description: 'Automatically generate personalized video and audio content for your adult business.',
     image: aiDULTLogo,
+    href: '#',
   },
 ]
 ---
 
 <section class="relative max-w-7xl mx-auto px-4 sm:px-6 mb-8">
   <div class="text-center max-w-5xl mx-auto mt-16 mb-14">
-    <h1 class="text-3xl md:text-4xl font-medium md:leading-10 tracking-tight mb-8 font-heading">
+    <h1 class="text-3xl md:text-[40px] font-medium md:leading-10 tracking-tight mb-7 font-heading">
       Explore the <br />enqAI ecosystem
     </h1>
     <div class="md:max-w-xl mx-auto">
-      <p class="text-sm font-medium leading-5">
+      <p class="text-base font-normal leading-5 tracking-wider">
         The enqAI ecosystem ranges from a blockchain settlement layer, a network of GPU rigs running models to a
         dedicated application layer. Take a look at some of our ecosystem partners.
       </p>
@@ -52,21 +57,28 @@ const products = [
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
     {
-      products.map(({ title, description, image, action }) => (
-        <div class="flex flex-col w-full bg-secondary border border-primary rounded-lg shadow-xl">
-          <div class="flex flex-row justify-between items-start p-5 border-b border-primary">
-            <Image src={image} alt={title} width={80} />
-            <div>expand</div>
+      products.map(({ title, description, image, href }) => (
+        <div class="flex flex-col w-full bg-gradient-to-b from-white from-50% to-[#F5F5F5] border border-primary rounded-lg shadow-xl">
+          <div class="flex flex-row justify-between items-center p-5 border-b border-primary">
+            <Image src={image} alt={title} width={40} />
+            <div class="flex border border-primary rounded-full w-6 h-6 items-center justify-center text-2xl hover:cursor-pointer">
+              +
+            </div>
           </div>
           <div class="p-5">
             <h1 class="text-2xl font-medium">{title}</h1>
-            <p class="w-full m-auto text-justify">
-              <span class="whitespace-wrap inline-block text-xs font-normal leading-normal">{description}</span>
-            </p>
+            <span class="whitespace-wrap inline-block text-xs font-normal leading-normal">{description}</span>
           </div>
-          {action && <div class="mt-auto p-5 text-xs text-muted">Open App</div>}
+          <a href={href} class="btn-primary text-xs mt-auto ml-5 mb-5 w-fit px-2 py-1">
+            Open App
+          </a>
         </div>
       ))
     }
+    <div
+      class="flex flex-col justify-center items-center text-center bg-primary border border-primary rounded-lg shadow-xl"
+    >
+      An ever growing ecosystem. <br />More to share soon.
+    </div>
   </div>
 </section>
