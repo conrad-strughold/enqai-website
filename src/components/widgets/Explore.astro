@@ -1,46 +1,48 @@
 ---
-import Image from '~/components/common/Image.astro'
 import enlil3Logo from '~/assets/images/enlil3.png'
 import noiseGPTLogo from '~/assets/images/noiseGPT.png'
 import botifAILogo from '~/assets/images/botifAI.png'
 import myAnalistLogo from '~/assets/images/myAnalist.png'
 import aiDULTLogo from '~/assets/images/aiDULT.png'
 
+import Image from '~/components/common/Image.astro'
+import ProductDrawer from './ProductDrawer.tsx'
+
 const products = [
   {
-    title: 'enlil3',
+    id: 'enlil3',
     description:
       'Our proprietary Arbitrum Rollup chain. Dedicated to powering the enqAI ecosystem. \n\nDedicated chain that settles to Arbitrum One using the enqAI (formerly noiseGPT) token for gas and governance.',
     image: enlil3Logo,
     href: '#',
   },
   {
-    title: 'noiseGPT',
+    id: 'noiseGPT',
     description: 'Our awesome voice cloning, lifelike text-to-speech and lipsync engine.',
     image: noiseGPTLogo,
-    href: '#',
+    href: 'https://noisegpt.com',
   },
   {
-    title: 'botifAI.app',
+    id: 'botifAI.app',
     description:
       "An extensive suite of customer-facing applications connected to a variety of LLM's, including enqAI LLM.",
     image: botifAILogo,
-    href: '#',
+    href: 'https://www.botifai.app',
   },
   {
-    title: 'myAnalyst',
+    id: 'myAnalyst',
     description:
       'An extensive suite of business oriented analytical tools. Train our models on your proprietary company data in a safe and shielded environment.',
     image: myAnalistLogo,
     href: '#',
   },
   {
-    title: 'aiDULT',
+    id: 'aiDULT',
     description: 'Automatically generate personalized video and audio content for your adult business.',
     image: aiDULTLogo,
     href: '#',
   },
-]
+] as const
 ---
 
 <section class="relative max-w-7xl mx-auto px-4 sm:px-6 mb-8">
@@ -57,19 +59,22 @@ const products = [
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
     {
-      products.map(({ title, description, image, href }) => (
+      products.map(({ id, description, image, href }) => (
         <div class="flex flex-col w-full bg-gradient-to-b from-white from-50% to-[#F5F5F5] border border-primary rounded-lg shadow-xl">
           <div class="flex flex-row justify-between items-center p-5 border-b border-primary">
-            <Image src={image} alt={title} width={40} />
-            <div class="flex border border-primary rounded-full w-6 h-6 items-center justify-center text-2xl hover:cursor-pointer">
-              +
-            </div>
+            <Image src={image} alt={id} width={40} />
+            <ProductDrawer client:visible id={id} />
           </div>
           <div class="p-5">
-            <h1 class="text-2xl font-medium">{title}</h1>
+            <h1 class="text-2xl font-medium">{id}</h1>
             <span class="whitespace-wrap inline-block text-xs font-normal leading-normal">{description}</span>
           </div>
-          <a href={href} class="btn-primary text-xs mt-auto ml-5 mb-5 w-fit px-2 py-1">
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary text-xs mt-auto ml-5 mb-5 w-fit px-2 py-1"
+          >
             Open App
           </a>
         </div>
