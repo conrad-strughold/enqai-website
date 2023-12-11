@@ -8,41 +8,120 @@ import aiDULTLogo from '~/assets/images/aiDULT.png'
 import Image from '~/components/common/Image.astro'
 import ProductDrawer from './ProductDrawer.tsx'
 
-const products = [
+type Card = {
+  title: string
+  description: string
+  image: ImageMetadata
+  href: string
+}
+
+type Modal = {
+  title: string
+  subtitle: string
+  features: string[]
+}
+
+const products: Array<{
+  card: Card
+  modal: Modal
+}> = [
   {
-    id: 'enlil3',
-    description:
-      'Our proprietary Arbitrum Rollup chain. Dedicated to powering the enqAI ecosystem. \n\nDedicated chain that settles to Arbitrum One using the enqAI (formerly noiseGPT) token for gas and governance.',
-    image: enlil3Logo,
-    href: '#',
+    card: {
+      title: 'enlil3',
+      description:
+        'Our proprietary Arbitrum Rollup chain. Dedicated to powering the enqAI ecosystem. \n\nDedicated chain that settles to Arbitrum One using the enqAI (formerly noiseGPT) token for gas and governance.',
+      image: enlil3Logo,
+      href: '#',
+    },
+    modal: {
+      title: 'Our proprietary Arbitrum Rollup.',
+      subtitle: `Why you should \nbe using enlil3.`,
+      features: [
+        'Lightning-fast transaction settlement',
+        "Enhanced security with Arbitrum's Layer-2 Technology",
+        'Reduced gas fees and increased scalability',
+        "Seamless integration with Ethereum's ecosystem",
+      ],
+    },
   },
   {
-    id: 'noiseGPT',
-    description: 'Our awesome voice cloning, lifelike text-to-speech and lipsync engine.',
-    image: noiseGPTLogo,
-    href: 'https://noisegpt.com',
+    card: {
+      title: 'noiseGPT',
+      description: 'Our awesome voice cloning, lifelike text-to-speech and lipsync engine.',
+      image: noiseGPTLogo,
+      href: 'https://noisegpt.com',
+    },
+    modal: {
+      title: 'Uncensored. Lifelike. Unlocked. Noise.',
+      subtitle: 'Unlock the Potential of Uncensored \nLifelike TTS and Lipsync Software.',
+      features: [
+        'Create realistic and expressive voices for your projects',
+        'Achieve lifelike lipsync for animations and virtual characters',
+        'Empower content creators with innovative audio solutions',
+        'Customize speech patterns, accents, and emotions',
+        'Seamless integration into various applications',
+      ],
+    },
   },
   {
-    id: 'botifAI.app',
-    description:
-      "An extensive suite of customer-facing applications connected to a variety of LLM's, including enqAI LLM.",
-    image: botifAILogo,
-    href: 'https://www.botifai.app',
+    card: {
+      title: 'botifAI.app',
+      description:
+        "An extensive suite of customer-facing applications connected to a variety of LLM's, including enqAI LLM.",
+      image: botifAILogo,
+      href: 'https://www.botifai.app',
+    },
+    modal: {
+      title: 'Harness the power of LLM technology.',
+      subtitle: 'Streamline your business with botifAI.',
+      features: [
+        'Seamlessly connect to multiple LLMs for enhanced functionality',
+        'Create intelligent chatbots, virtual assistants, and more',
+        'Enhance automation, customer support, and user experiences',
+        'Unlock new levels of AI-driven innovation',
+        'Customize and adapt LLMs for specific use cases',
+      ],
+    },
   },
   {
-    id: 'myAnalyst',
-    description:
-      'An extensive suite of business oriented analytical tools. Train our models on your proprietary company data in a safe and shielded environment.',
-    image: myAnalistLogo,
-    href: '#',
+    card: {
+      title: 'myAnalyst',
+      description:
+        'An extensive suite of business oriented analytical tools. Train our models on your proprietary company data in a safe and shielded environment.',
+      image: myAnalistLogo,
+      href: '#',
+    },
+    modal: {
+      title: 'Maintain your competitive edge.',
+      subtitle: 'Empower, Secure, Innovate. \nYour Data, Our Training.',
+      features: [
+        "Train Large Language Models on your company's proprietary data",
+        'Ensure data privacy and security throughout the training process',
+        'Enhance efficiency, innovation, and competitiveness',
+        "Unlock the full potential of your organization's data",
+      ],
+    },
   },
   {
-    id: 'aiDULT',
-    description: 'Automatically generate personalized video and audio content for your adult business.',
-    image: aiDULTLogo,
-    href: '#',
+    card: {
+      title: 'aiDULT',
+      description: 'Automatically generate personalized video and audio content for your adult business.',
+      image: aiDULTLogo,
+      href: '#',
+    },
+    modal: {
+      title: 'Tailored Adult Content, Automated.',
+      subtitle: "Because we \ncouldn't get enough.",
+      features: [
+        'Automated video content creation and distribution',
+        'Personalization algorithms for fan engagement',
+        'Create unique, tailored content at scale',
+        'Continuous training on 1 on 1 chat history',
+        'Stay ahead in the competitive world of online videos',
+      ],
+    },
   },
-] as const
+]
 ---
 
 <section class="relative max-w-7xl mx-auto px-4 sm:px-6 mb-8">
@@ -59,18 +138,18 @@ const products = [
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
     {
-      products.map(({ id, description, image, href }) => (
+      products.map(({ card, modal }) => (
         <div class="flex flex-col w-full bg-gradient-to-b from-white from-50% to-[#F5F5F5] border border-primary rounded-lg shadow-xl">
           <div class="flex flex-row justify-between items-center p-5 border-b border-primary">
-            <Image src={image} alt={id} width={40} />
-            <ProductDrawer client:visible id={id} />
+            <Image src={card.image} alt={card.title} width={40} />
+            <ProductDrawer client:visible title={modal.title} subtitle={modal.subtitle} features={modal.features} />
           </div>
           <div class="p-5">
-            <h1 class="text-2xl font-medium">{id}</h1>
-            <span class="whitespace-wrap inline-block text-xs font-normal leading-normal">{description}</span>
+            <h1 class="text-2xl font-medium">{card.title}</h1>
+            <span class="whitespace-wrap inline-block text-xs font-normal leading-normal">{card.description}</span>
           </div>
           <a
-            href={href}
+            href={card.href}
             target="_blank"
             rel="noopener noreferrer"
             class="btn-primary text-xs mt-auto ml-5 mb-5 w-fit px-2 py-1"
@@ -81,7 +160,7 @@ const products = [
       ))
     }
     <div
-      class="flex flex-col justify-center items-center text-center bg-primary border border-primary rounded-lg shadow-xl"
+      class="flex flex-col justify-center items-center text-center bg-primary border border-primary rounded-lg shadow-xl py-5 md:py-0"
     >
       An ever growing ecosystem. <br />More to share soon.
     </div>

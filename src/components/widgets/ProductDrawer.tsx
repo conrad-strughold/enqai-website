@@ -1,10 +1,19 @@
 import { useRef, useState } from 'react'
 import { useOnClickOutside } from '~/hooks/useOnClickOutside'
+import Checkmark from '~/assets/images/checkmark.svg'
 
-export type ProductID = 'enlil3' | 'noiseGPT' | 'botifAI.app' | 'myAnalyst' | 'aiDULT'
-
-export default function ProductDrawer({ id }: { id: ProductID }) {
+export default function ProductDrawer({
+  title,
+  subtitle,
+  features,
+}: {
+  title: string
+  subtitle: string
+  features: string[]
+}) {
   const [showDrawer, setShowDrawer] = useState(false)
+  const ref = useRef(null)
+  useOnClickOutside(ref, () => setShowDrawer(false))
 
   return (
     <>
@@ -14,35 +23,37 @@ export default function ProductDrawer({ id }: { id: ProductID }) {
       >
         +
       </button>
-      <Drawer isOpen={showDrawer} onClose={() => setShowDrawer(false)} id={id} />
-    </>
-  )
-}
-
-function Drawer({ isOpen, onClose, id }: { isOpen: boolean; onClose: () => void; id: ProductID }) {
-  const ref = useRef(null)
-  useOnClickOutside(ref, onClose)
-
-  return (
-    <>
       <div
-        className={`fixed left-0 bottom-0 w-full h-full transition-all ${isOpen ? 'z-50 backdrop-blur-sm' : '-z-50'}`}
+        className={`fixed left-0 top-0 w-full h-full transition-all ${showDrawer ? 'z-50 backdrop-blur-sm' : '-z-50'}`}
       ></div>
       <div
         ref={ref}
-        className={`fixed left-0 bottom-0 w-full h-96 z-50 transition-transform duration-300 ${
-          isOpen ? '' : 'translate-y-96'
+        className={`fixed left-0 top-full h-full right-0 max-w-[1400px] py-10 md:px-10 pb-0 mx-auto self-center z-50 transition-transform duration-1000 ${
+          showDrawer ? '-translate-y-full' : 'translate-y-full'
         }`}
       >
-        <div className="relative flex flex-col h-full mx-10 overflow-hidden rounded-t-lg shadow-sm">
+        <div className="relative flex flex-col h-full w-full mx-auto overflow-y-scroll no-scrollbar rounded-t-2xl shadow-2xl">
           <div
-            className="absolute flex justify-center items-center right-0 m-5 bg-white w-12 h-12 rounded-full text-2xl font-medium hover:cursor-pointer"
-            onClick={onClose}
+            className="fixed right-0 flex justify-center items-center my-5 mr-5 md:mr-14 bg-white w-12 h-12 rounded-full text-2xl font-medium hover:cursor-pointer"
+            onClick={() => setShowDrawer(false)}
           >
             x
           </div>
-          <div className="flex flex-row p-10 h-full bg-black">
-            <h1 className="text-white text-4xl font-medium max-w-[400px]">A Layer 3 specifically for uncensored AI</h1>
+          <div className="flex flex-row py-16 px-8 md:p-24 h-[350px] bg-[#1B1C1F]">
+            <h1 className="text-white text-[40px] font-medium max-w-[420px] leading-10">{title}</h1>
+          </div>
+          <div className="flex flex-col justify-start items-center w-full h-full pb-14 md:pb-28 bg-white">
+            <h1 className="text-3xl md:text-4xl font-medium leading-10 text-center py-8 md:py-16 whitespace-pre-line">
+              {subtitle}
+            </h1>
+            <div className="grid grid-cols-2 gap-2 md:gap-5 mx-5 md:mx-40">
+              {features.map((text, index) => (
+                <div key={index} className="flex flex-col justify-center gap-2 border border-primary shadow-xl h-48">
+                  <img src={Checkmark.src} className="w-5 h-5 mx-auto" />
+                  <h1 className="text-sm md:text-lg font-normal text-center mx-auto w-2/3">{text}</h1>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
