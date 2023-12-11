@@ -32,7 +32,7 @@ export default function ProductDrawer({
           showDrawer ? '-translate-y-full' : 'translate-y-full'
         }`}
       >
-        <div className="relative flex flex-col h-full w-full mx-auto overflow-y-scroll no-scrollbar rounded-t-2xl shadow-2xl">
+        <div className="relative flex flex-col h-full w-full mx-auto overflow-y-scroll no-scrollbar rounded-t-2xl shadow-2xl bg-white">
           <div
             className="fixed right-0 flex justify-center items-center my-5 mr-5 md:mr-14 bg-white w-12 h-12 rounded-full text-2xl font-medium hover:cursor-pointer"
             onClick={() => setShowDrawer(false)}
