@@ -10,9 +10,8 @@ module.exports = {
         muted: 'var(--aw-color-text-muted)',
       },
       fontFamily: {
-        sans: ['var(--aw-font-sans)', ...defaultTheme.fontFamily.sans],
-        serif: ['var(--aw-font-serif)', ...defaultTheme.fontFamily.serif],
-        heading: ['var(--aw-font-heading)', ...defaultTheme.fontFamily.sans],
+        sans: ['FK Grotesk', ...defaultTheme.fontFamily.sans],
+        mono: ['FK Grotesk Mono', ...defaultTheme.fontFamily.sans],
       },
     },
   },

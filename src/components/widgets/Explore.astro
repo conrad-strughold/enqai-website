@@ -1,9 +1,15 @@
 ---
-import enlil3Logo from '~/assets/images/enlil3.png'
-import noiseGPTLogo from '~/assets/images/noiseGPT.png'
-import botifAILogo from '~/assets/images/botifAI.png'
-import myAnalistLogo from '~/assets/images/myAnalist.png'
-import aiDULTLogo from '~/assets/images/aiDULT.png'
+import enlil3Logo from '~/assets/images/explore-enlil3.png'
+import noiseGPTLogo from '~/assets/images/explore-noisegpt.png'
+import botifAILogo from '~/assets/images/explore-botifai.png'
+import myAnalistLogo from '~/assets/images/explore-myanalyst.png'
+import aiDULTLogo from '~/assets/images/explore-aidult.png'
+
+import enlil3Hero from '~/assets/images/explore-enlil3-hero.svg'
+import noiseGPTHero from '~/assets/images/explore-noisegpt-hero.svg'
+import botifAIHero from '~/assets/images/explore-botifai-hero.svg'
+import myAnalystHero from '~/assets/images/explore-myanalyst-hero.svg'
+import aiDULTHero from '~/assets/images/explore-aidult-hero.svg'
 
 import Image from '~/components/common/Image.astro'
 import ProductDrawer from './ProductDrawer.tsx'
@@ -16,6 +22,8 @@ type Card = {
 }
 
 type Modal = {
+  hero: ImageMetadata
+  color: 'light' | 'dark' | 'gray'
   title: string
   subtitle: string
   features: string[]
@@ -34,6 +42,8 @@ const products: Array<{
       href: '#',
     },
     modal: {
+      hero: enlil3Hero,
+      color: 'dark',
       title: 'Our proprietary Arbitrum Rollup.',
       subtitle: `Why you should \nbe using enlil3.`,
       features: [
@@ -52,6 +62,8 @@ const products: Array<{
       href: 'https://noisegpt.com',
     },
     modal: {
+      hero: noiseGPTHero,
+      color: 'light',
       title: 'Uncensored. Lifelike. Unlocked. Noise.',
       subtitle: 'Unlock the Potential of Uncensored \nLifelike TTS and Lipsync Software.',
       features: [
@@ -72,6 +84,8 @@ const products: Array<{
       href: 'https://www.botifai.app',
     },
     modal: {
+      hero: botifAIHero,
+      color: 'gray',
       title: 'Harness the power of LLM technology.',
       subtitle: 'Streamline your business with botifAI.',
       features: [
@@ -92,6 +106,8 @@ const products: Array<{
       href: '#',
     },
     modal: {
+      hero: myAnalystHero,
+      color: 'dark',
       title: 'Maintain your competitive edge.',
       subtitle: 'Empower, Secure, Innovate. \nYour Data, Our Training.',
       features: [
@@ -110,8 +126,10 @@ const products: Array<{
       href: '#',
     },
     modal: {
+      hero: aiDULTHero,
+      color: 'gray',
       title: 'Tailored Adult Content, Automated.',
-      subtitle: "Because we \ncouldn't get enough.",
+      subtitle: "Because we \ncan't get enough.",
       features: [
         'Automated video content creation and distribution',
         'Personalization algorithms for fan engagement',
@@ -125,12 +143,12 @@ const products: Array<{
 ---
 
 <section class="relative max-w-7xl mx-auto px-4 sm:px-6 mb-8">
-  <div class="text-center max-w-5xl mx-auto mt-16 mb-14">
-    <h1 class="text-3xl md:text-[40px] font-medium md:leading-10 tracking-tight mb-7 font-heading">
+  <div class="text-center max-w-5xl mx-auto mt-24 mb-20">
+    <h1 class="text-3xl md:text-[40px] font-medium md:leading-10 tracking-tight mb-7">
       Explore the <br />enqAI ecosystem
     </h1>
     <div class="md:max-w-xl mx-auto">
-      <p class="text-base font-normal leading-5 tracking-wider">
+      <p class="text-base leading-5 tracking-tighter font-mono">
         The enqAI ecosystem ranges from a blockchain settlement layer, a network of GPU rigs running models to a
         dedicated application layer. Take a look at some of our ecosystem partners.
       </p>
@@ -139,13 +157,20 @@ const products: Array<{
   <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
     {
       products.map(({ card, modal }) => (
-        <div class="flex flex-col w-full bg-gradient-to-b from-white from-50% to-[#F5F5F5] border border-primary rounded-lg shadow-xl">
+        <div class="flex flex-col w-full bg-gradient-to-b from-white from-50% to-[#F5F5F5] border border-primary rounded-lg shadow-xl md:h-[320px]">
           <div class="flex flex-row justify-between items-center p-5 border-b border-primary">
             <Image src={card.image} alt={card.title} width={40} />
-            <ProductDrawer client:visible title={modal.title} subtitle={modal.subtitle} features={modal.features} />
+            <ProductDrawer
+              client:visible
+              hero={modal.hero.src}
+              color={modal.color}
+              title={modal.title}
+              subtitle={modal.subtitle}
+              features={modal.features}
+            />
           </div>
           <div class="p-5">
-            <h1 class="text-2xl font-medium">{card.title}</h1>
+            <h1 class="text-2xl font-medium pb-4">{card.title}</h1>
             <span class="whitespace-wrap inline-block text-xs font-normal leading-normal">{card.description}</span>
           </div>
           <a

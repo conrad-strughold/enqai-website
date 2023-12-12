@@ -12,23 +12,15 @@ const links = [
     name: 'Twitter',
     href: 'https://twitter.com/enq_AI',
   },
-  {
-    name: 'Docs',
-    href: 'https://enqai.gitbook.io',
-  },
-  {
-    name: 'Whitepaper',
-    href: 'https://www.enqai.com/wp',
-  },
 ]
 ---
 
 <section class="relative max-w-7xl mx-auto px-4 sm:px-6 mb-8">
   <div
-    class="flex flex-col justify-start gap-4 p-5 md:p-10 rounded-3xl h-fit md:h-[470px] bg-cover bg-[url('~/assets/images/dark-cloud-card.png')]"
+    class="flex flex-col justify-start gap-4 p-5 md:p-10 md:pb-5 rounded-3xl h-fit md:h-[470px] bg-cover bg-[url('~/assets/images/community-background.png')]"
   >
     <p class="text-white opacity-50 text-2xl font-normal">Join the community</p>
-    <h2 class="text-white text-xl md:text-[40px] font-medium w-3/4 md:w-1/2">
+    <h2 class="text-white text-xl md:text-[40px] font-medium w-3/4 md:w-1/2 leading-9">
       A new era of distributed, censorship free AI.
     </h2>
     <div class="flex flex-row gap-2 mt-auto flex-wrap">
@@ -38,7 +30,7 @@ const links = [
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="btn-primary flex-1 md:flex-none bg-transparent text-white font-medium py-1 px-2 md:py-3 md:px-5 rounded-lg md:rounded-2xl text-xs md:text-base"
+            class="btn-secondary flex-1 md:flex-none h-10 py-1 px-2 md:py-3 md:px-5 rounded-lg md:rounded-2xl text-xs md:text-base "
           >
             {link.name}
           </a>

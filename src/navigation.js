@@ -2,15 +2,15 @@ export const headerData = {
   links: [
     {
       text: 'DOCS',
-      href: '#',
+      href: 'https://enqai.com/docs',
     },
     {
-      text: 'MANIFESTO',
-      href: '#',
+      text: 'LINKTREE',
+      href: 'https://linktr.ee/noisegpt',
     },
     {
-      text: 'ABOUT',
-      href: '#',
+      text: 'WHITEPAPER',
+      href: 'https://enqai.com/wp',
     },
   ],
 }

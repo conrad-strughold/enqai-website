@@ -2,7 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'FK Grotesk';
+  src:
+    url('../fonts/FKGrotesk-Medium.woff2') format('woff2'),
+    url('../fonts/FKGrotesk-Medium.woff') format('woff'),
+    url('../fonts/FKGrotesk-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FK Grotesk';
+  src:
+    url('../fonts/FKGrotesk-Regular.woff2') format('woff2'),
+    url('../fonts/FKGrotesk-Regular.woff') format('woff'),
+    url('../fonts/FKGrotesk-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FK Grotesk Mono';
+  src:
+    url('../fonts/FKGroteskMono-Regular.woff2') format('woff2'),
+    url('../fonts/FKGroteskMono-Regular.woff') format('woff'),
+    url('../fonts/FKGroteskMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer utilities {
+  body {
+    @apply font-sans;
+  }
+
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -25,6 +62,9 @@
   .border-primary {
     border-color: var(--aw-color-border-primary);
   }
+  .border-secondary {
+    border-color: var(--aw-color-border-secondary);
+  }
 }
 
 @layer components {
@@ -37,7 +77,7 @@
   }
 
   .btn-secondary {
-    @apply btn;
+    @apply btn bg-[#435BDD] border-0 text-white;
   }
 
   .btn-tertiary {

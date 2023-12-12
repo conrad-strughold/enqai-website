@@ -1,22 +1,25 @@
 ---
 import Image from '~/components/common/Image.astro'
-import feature1Logo from '~/assets/images/feature1.png'
+import starVector from '~/assets/images/star-vector.png'
+import videoLogo from '~/assets/images/feature-video.png'
+import gpuLogo from '~/assets/images/feature-gpu.png'
+import llmLogo from '~/assets/images/feature-llm.png'
 
 const features = [
   {
     title: 'GENERATE IMAGE, \nAUDIO & VIDEO',
     description: 'Unleash limitless creativity with our state-of-the-art models. No restricted words. Any voice.',
-    image: feature1Logo,
+    image: videoLogo,
   },
   {
     title: 'MAKE A LIVING AS \nA GPU PROVIDER',
     description: 'Earn money by becoming an enqAI node and fulfilling user inferences globally.',
-    image: feature1Logo,
+    image: gpuLogo,
   },
   {
     title: 'UNBIASED LARGE \nLANGUAGE MODEL',
     description: 'Unlock boundless creativity: no banned words, any voice, with our state-of-the-art models.',
-    image: feature1Logo,
+    image: llmLogo,
   },
 ]
 ---
@@ -27,7 +30,7 @@ const features = [
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div class="relative border border-primary rounded-xl shadow-2xl overflow-hidden">
       <div
-        class="flex flex-row justify-between text-white items-center px-8 h-fit md:px-16 py-5 md:h-[420px] bg-cover bg-[url('~/assets/images/hero-gradient.svg')]"
+        class="flex flex-row justify-between text-white items-center px-8 h-fit md:px-16 py-5 md:h-[420px] bg-cover bg-[url('~/assets/images/hero-background.svg')]"
       >
         <div class="flex flex-col gap-6 w-full md:w-1/2">
           <h1 class="text-3xl md:text-4xl font-medium md:leading-9 tracking-tight">
@@ -40,13 +43,14 @@ const features = [
             >, and <span class="text-primary">censorship</span>
           </p>
         </div>
+        <Image src={starVector} alt="enqai-vector" width={300} class="hidden md:block" />
       </div>
-      <div class="flex flex-col gap-5 md:gap-0 md:flex-row p-5 md:pt-20 w-full md:h-[330px] bg-tertiary">
+      <div class="flex flex-col gap-5 md:gap-0 md:flex-row p-5 md:py-16 w-full bg-tertiary">
         {
           features.map(({ title, description, image }) => (
-            <div class="flex flex-col w-full justify-start items-center gap-5 text-center border-b md:border-r border-primary last:border-b-0 md:last:border-r-0">
+            <div class="flex flex-col w-full justify-start items-center gap-6 text-center border-b md:border-b-0 md:border-r border-primary last:border-b-0 md:last:border-r-0">
               <Image src={image} alt={title} width={48} class="hidden md:block" />
-              <h1 class="text-xl font-medium whitespace-pre-line leading-5">{title}</h1>
+              <h1 class="text-xl font-semibold whitespace-pre-line leading-5 font-mono">{title}</h1>
               <p class="text-sm font-medium leading-5 w-3/4 mx-auto">{description}</p>
             </div>
           ))
