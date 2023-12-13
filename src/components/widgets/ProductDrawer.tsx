@@ -1,5 +1,4 @@
-import { useRef, useState } from 'react'
-
+import { useEffect, useRef, useState } from 'react'
 import { useOnClickOutside } from '~/hooks/useOnClickOutside'
 import Checkmark from '~/assets/images/checkmark.svg'
 
@@ -19,6 +18,11 @@ export default function ProductDrawer({
   const [showDrawer, setShowDrawer] = useState(false)
   const ref = useRef(null)
   useOnClickOutside(ref, () => setShowDrawer(false))
+
+  useEffect(() => {
+    if (showDrawer) document.body.style.overflow = 'hidden'
+    if (!showDrawer) document.body.style.overflow = 'unset'
+  }, [showDrawer])
 
   return (
     <>
