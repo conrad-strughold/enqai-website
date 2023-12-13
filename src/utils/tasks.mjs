@@ -5,7 +5,6 @@ const tasksIntegration = () => {
   let config
   return {
     name: 'enqAI:tasks',
-
     hooks: {
       'astro:config:done': async ({ config: cfg }) => {
         config = cfg
