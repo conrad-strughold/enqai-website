@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import partytown from '@astrojs/partytown'
 import react from '@astrojs/react'
+import vercel from '@astrojs/vercel/serverless'
 import compress from 'astro-compress'
 import icon from 'astro-icon'
 
@@ -60,4 +61,5 @@ export default defineConfig({
       },
     },
   },
+  adapter: vercel(),
 })
