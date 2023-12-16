@@ -103,7 +103,7 @@ const products: Array<{
       description:
         'An extensive suite of business oriented analytical tools. Train our models on your proprietary company data in a safe and shielded environment.',
       image: myAnalistLogo,
-      href: '#',
+      href: '',
     },
     modal: {
       hero: myAnalystHero,
@@ -123,7 +123,7 @@ const products: Array<{
       title: 'aiDULT',
       description: 'Automatically generate personalized video and audio content for your adult business.',
       image: aiDULTLogo,
-      href: '#',
+      href: '',
     },
     modal: {
       hero: aiDULTHero,
@@ -173,14 +173,15 @@ const products: Array<{
             <h1 class="text-2xl font-medium pb-4">{card.title}</h1>
             <span class="whitespace-wrap inline-block text-xs font-normal leading-normal">{card.description}</span>
           </div>
-          <a
-            href={card.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-primary text-xs mt-auto ml-5 mb-5 w-fit px-2 py-1"
-          >
-            Open App
-          </a>
+          <div class=" mt-auto ml-5 mb-5 ">
+            {card.href ? (
+              <a href={card.href} target="_blank" rel="noopener noreferrer" class="btn-primary text-xs w-fit px-2 py-1">
+                Open App
+              </a>
+            ) : (
+              <p class="text-xs text-muted">Coming soon</p>
+            )}
+          </div>
         </div>
       ))
     }

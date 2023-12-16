@@ -17,7 +17,7 @@ metadata:
   openGraph:
     site_name: enqAI
     images:
-      - url: '~/assets/images/logo.png'
+      - url: '~/assets/images/logo.svg'
         width: 1200
         height: 628
     type: website
