@@ -1,0 +1,21 @@
+---
+import Layout from '~/layouts/PageLayout.astro'
+
+import type { MetaData } from '~/types'
+import PressHero from '~/components/widgets/PressHero.astro'
+
+const metadata: MetaData = {
+  title: 'enqAI - press mentions',
+  canonical: 'https://enqai.com/press',
+  description: 'Press mentions of enqAI.',
+  twitter: {
+    handle: 'enq_AI',
+    site: 'https://enqai.com',
+  },
+}
+---
+
+<Layout metadata={metadata}>
+  <!-- Press Hero -->
+  <PressHero />
+</Layout>

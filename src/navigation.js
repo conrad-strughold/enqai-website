@@ -1,5 +1,11 @@
+import { getPermalink } from './utils/permalinks'
+
 export const headerData = {
   links: [
+    {
+      text: 'PRESS',
+      href: getPermalink('/press'),
+    },
     {
       text: 'DOCS',
       href: 'https://enqai.com/docs',

@@ -36,7 +36,10 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
   <div class="relative text-default py-3 px-3 md:px-6 mx-auto w-full md:flex md:justify-between">
     <div class="flex justify-between mr-auto">
-      <a class="flex items-center" href={getHomePermalink()}>
+      <a
+        class="flex items-center"
+        href={getHomePermalink() === currentPath ? 'javascript:void(0)' : getHomePermalink()}
+      >
         <Logo />
       </a>
       <div class="flex items-center md:hidden">
@@ -62,11 +65,9 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
                     {links.map(({ text: text2, href: href2 }) => (
                       <li>
                         <a
-                          class:list={[
-                            'first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-muted py-2 px-5 block whitespace-no-wrap',
-                            { 'aw-link-active': href2 === currentPath },
-                          ]}
-                          href={href2}
+                          class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-muted py-2 px-5 block whitespace-no-wrap"
+                          target={href?.startsWith('/') ? '_self' : '_blank'}
+                          href={href2 === currentPath ? 'javascript:void(0)' : href2}
                         >
                           {text2}
                         </a>
@@ -76,13 +77,9 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
                 </>
               ) : (
                 <a
-                  class:list={[
-                    'hover:text-muted p-3 flex items-centers text-sm font-medium',
-                    { 'aw-link-active': href === currentPath },
-                  ]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={href}
+                  class={'hover:text-muted p-3 flex items-center text-sm font-medium'}
+                  target={href?.startsWith('/') ? '_self' : '_blank'}
+                  href={href === currentPath ? 'javascript:void(0)' : href}
                 >
                   {text}
                 </a>

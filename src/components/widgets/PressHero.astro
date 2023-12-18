@@ -1,0 +1,138 @@
+---
+import { Image } from 'astro:assets'
+import article1Image from '~/assets/images/articles/articles-1.png'
+
+const articles = [
+  {
+    title: 'Malik Obama joins decentralized AI startup noiseGPT as advisor',
+    date: '2023-10-30',
+    href: 'https://coinmarketcap.com/community/articles/653f569c9ff5ee3dfd3040fc/',
+    image: 'https://academy-public.coinmarketcap.com/srd-optimized-uploads/b8c1d2e58ea3493ca1be410f37ff7f6c.png',
+  },
+  {
+    title: 'A new chapter in the noiseGPT story: Introducing enqAI',
+    date: '2023-09-10',
+    href: 'https://coinmarketcap.com/community/articles/64fdbfa792e6a74caf0f4f5b/',
+    image: 'https://academy-public.coinmarketcap.com/srd-optimized-uploads/69ada77a79424f85b660b2ad22c3ae35.jpg',
+  },
+  {
+    title: 'Highlights from the enqAI whitepaper: A Network for Decentralized Uncensored AI Models',
+    date: '2023-12-01',
+    href: 'https://coinmarketcap.com/community/articles/656a17b4812ea6437a3aabb3/',
+    image: 'https://academy-public.coinmarketcap.com/srd-optimized-uploads/b98c9ed17ece4dab949549f0606d53b9.png',
+  },
+  {
+    title: 'noiseGPT x RoastHimJim',
+    date: '2023-07-27',
+    href: 'https://coinmarketcap.com/community/articles/64c1e007c81b377d7c61f8e5/',
+    image: 'https://academy-public.coinmarketcap.com/srd-optimized-uploads/6fe3635134834801828475156d5fff67.jpeg',
+  },
+  {
+    title: 'The noiseGPT DAO is here - and it will be giving away another 500 USD',
+    date: '2023-07-05',
+    href: 'https://coinmarketcap.com/community/articles/64a53fff306a5550d33557e4',
+    image: 'https://academy-public.coinmarketcap.com/srd-optimized-uploads/70ba9a03000644708565f45cc537e9b7.png',
+  },
+  {
+    title: 'All your memes are belong to us',
+    date: '2023-07-04',
+    href: 'https://coinmarketcap.com/community/articles/64a441d2231e8710fa48ac1b',
+    image: 'https://academy-public.coinmarketcap.com/srd-optimized-uploads/ac54ad7fac6845cb81353d4a91a35181.jpg',
+  },
+  {
+    title: '2084',
+    date: '2023-06-22',
+    href: 'https://coinmarketcap.com/community/articles/6493cd78face941589462055/',
+    image: 'https://academy-public.coinmarketcap.com/srd-optimized-uploads/5d354370396745978f2c6767ddd4af3d.jpeg',
+  },
+  {
+    title: 'noiseGPT Token Mechanics and Tokenomics',
+    date: '2023-06-04',
+    href: 'https://coinmarketcap.com/community/articles/647c5b74b178f9200cca14c6',
+    image: 'https://academy-public.coinmarketcap.com/srd-optimized-uploads/d3fad91e7d4e4e019e640c06a6fd7061.png',
+  },
+  {
+    title: 'Somebody is making noise on Twitter',
+    date: '2023-05-29',
+    href: 'https://coinmarketcap.com/community/articles/64742ab11a48796801d201ad',
+    image: 'https://academy-public.coinmarketcap.com/srd-optimized-uploads/97dc67521eeb43a3949dcda72f3f926b.jpg',
+  },
+  {
+    title: 'Crypto, AI and Memes: The holy trinity? Or: how noiseGPT is akin to early Bitcoin mining',
+    date: '2023-05-15',
+    href: 'https://coinmarketcap.com/community/articles/6440baa63c8cdf228d142813/',
+    image: 'https://academy-public.coinmarketcap.com/srd-optimized-uploads/1559cec11f674ba5bc5fa6bee11afe75.png',
+  },
+  {
+    title: 'Recap, Releases, Raps and Roadmap.',
+    date: '2023-04-16',
+    href: 'https://medium.com/@noisegpt/recap-releases-raps-and-roadmap-95e812e78a25',
+    image: article1Image,
+  },
+  {
+    title: 'noiseGPT on Arbitrum, a recap and another Airdrop?',
+    date: '2023-03-24',
+    href: 'https://medium.com/@noisegpt/noisegpt-on-arbitrum-a-recap-and-another-airdrop-1a46d94c77b5',
+    image: article1Image,
+  },
+  {
+    title: 'basedAI is here',
+    date: '2023-03-06',
+    href: 'https://medium.com/@noisegpt/basedai-is-here-49d6060728',
+    image: article1Image,
+  },
+  {
+    title: 'Staking is live',
+    date: '2023-02-16',
+    href: 'https://medium.com/@noisegpt/staking-is-live-on-noisegpt-com-with-over-900-apr-9677b98ab5f2',
+    image: article1Image,
+  },
+  {
+    title: 'noiseGPT recap & announcements',
+    date: '2023-02-12',
+    href: 'https://medium.com/@noisegpt/noisegpt-recap-announcements-fd8053a49f0c',
+    image: article1Image,
+  },
+  {
+    title: "what's all the noise about?",
+    date: '2023-02-12',
+    href: 'https://medium.com/@noisegpt/whats-all-the-noise-about-f3702e2fcf58',
+    image: article1Image,
+  },
+]
+---
+
+<section class="relative max-w-7xl mx-auto px-4 sm:px-6">
+  <div class="relative">
+    <div class="absolute h-[470px] w-full rounded-xl bg-cover bg-[url('~/assets/images/hero-background.svg')]"></div>
+  </div>
+  <div class="relative flex flex-col w-full justify-center items-center mx-auto">
+    <h1 class="text-3xl md:text-4xl text-white text-center font-medium md:leading-9 tracking-tight mt-32 mb-20">
+      enqAI <br />Press Mentions
+    </h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-5/6 gap-5">
+      {
+        articles.map(({ title, date, href, image }) => (
+          <a
+            class="flex flex-col rounded-2xl shadow-2xl overflow-hidden hover:-translate-y-1 transition-all duration-300"
+            href={href}
+            target="_blank"
+          >
+            {typeof image === 'string' ? (
+              <img src={image} alt={title} style="height: 100%; width: 100%; object-fit: cover;" />
+            ) : (
+              <Image src={image} alt={title} style="height: 100%; width: 100%; object-fit: cover;" />
+            )}
+            <div class="flex flex-col h-full items-start bg-white p-4">
+              <h1 class="text-2xl font-medium whitespace-pre-line leading-5">{title}</h1>
+              <div class="flex flex-row w-full justify-between items-end pt-10 mt-auto">
+                <div class="btn-primary text-xs w-fit px-5 py-1">Read</div>
+                <p class="text-sm">{date}</p>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
