@@ -16,7 +16,7 @@ export const headerData = {
     },
     {
       text: 'ROADMAP',
-      href: 'https://enqai.gitbook.io/enqai-documentation/project-overview/roadmap'.
+      href: 'https://enqai.gitbook.io/enqai-documentation/project-overview/roadmap',
         },
     {
       text: 'WHITEPAPER',
