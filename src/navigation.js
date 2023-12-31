@@ -15,6 +15,10 @@ export const headerData = {
       href: 'https://linktr.ee/noisegpt',
     },
     {
+      text: 'ROADMAP',
+      href: 'https://enqai.gitbook.io/enqai-documentation/project-overview/roadmap'.
+        },
+    {
       text: 'WHITEPAPER',
       href: 'https://enqai.com/wp',
     },
